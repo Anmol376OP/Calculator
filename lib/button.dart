@@ -46,40 +46,40 @@ class _ButtonState extends State<Button> {
     }
     else if(str=='1'||str=='2'||str=='3'||str=='4'||str=='5'||str=='6'||str=='7'||str=='8'||str=='9'||str=='0'){
       if(set==0)
-        {
-          setState(() {
-            res+=str;
-            display+=str;
-          });
-        }
+      {
+        setState(() {
+          res+=str;
+          display+=str;
+        });
+      }
       else
-        {
-          setState(() {
-            set=0;
-            res=str;
-            history=display;
-            display=str;
-          });
-        }
+      {
+        setState(() {
+          set=0;
+          res=str;
+          history=display;
+          display=str;
+        });
+      }
     }
     else if(str=='+'){
       if(set==0)
-        {
-          setState(() {
-            a=double.parse(res);
-            res='';
-            display+='+';
-            operation=str;
-          });
-        }
-        else{
-          setState(() {
-            a=double.parse(res);
-            res='';
-            display+=str;
-            set=0;
-            operation=str;
-          });
+      {
+        setState(() {
+          a=double.parse(res);
+          res='';
+          display+='+';
+          operation=str;
+        });
+      }
+      else{
+        setState(() {
+          a=double.parse(res);
+          res='';
+          display+=str;
+          set=0;
+          operation=str;
+        });
       }
     }
     else if(str=='-'){
@@ -198,7 +198,7 @@ class _ButtonState extends State<Button> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16),
+        margin: EdgeInsets.all(16),
         child: Column(
           children: [
             Padding(padding: EdgeInsets.only(right: 16),child: Align(alignment: Alignment.bottomRight,child: Column(children: [Text(history,style: TextStyle(fontSize: 25,color: Colors.grey),),],),),),
@@ -242,19 +242,19 @@ class _ButtonState extends State<Button> {
                 SizedBox(height: 70,width: 70,child: TextButton(onPressed: (){Click('/');}, child: Text('/'),style: TextButton.styleFrom(backgroundColor: Colors.amber,foregroundColor: Colors.white,padding: const EdgeInsets.all(16.0)),),),
               ],
             ),
-            SizedBox(height: 8,),
+            const SizedBox(height: 8,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(height: 70,width: 70,child: TextButton(onPressed: (){Click('@');}, child: Text('+/-'),style: TextButton.styleFrom(backgroundColor: Colors.grey,foregroundColor: Colors.white,padding: const EdgeInsets.all(16.0)),),),
                 SizedBox(height: 70,width: 70,child: TextButton(onPressed: (){Click('0');}, child: Text('0'),style: TextButton.styleFrom(backgroundColor: Colors.grey,foregroundColor: Colors.white,padding: const EdgeInsets.all(16.0)),),),
                 SizedBox(height: 70,width: 70,child: TextButton(onPressed: (){Click('.');}, child: Text('.'),style: TextButton.styleFrom(backgroundColor: Colors.grey,foregroundColor: Colors.white,padding: const EdgeInsets.all(16.0)),),),
-                SizedBox(height: 70,width: 70,child: TextButton(onPressed: (){Click('=');}, child: Text('='),style: TextButton.styleFrom(backgroundColor: Colors.amber,foregroundColor: Colors.white,padding: const EdgeInsets.all(16.0)),),),
+                SizedBox(height: 70,width: 70,child: TextButton(onPressed: (){Click('=');}, child: Text('=',style: TextStyle(fontSize: 25),),style: TextButton.styleFrom(backgroundColor: Colors.amber,foregroundColor: Colors.black,padding: const EdgeInsets.all(16.0)),),),
               ],
             )
-      ],
+          ],
         )
     );
 
-      }
+  }
 }
